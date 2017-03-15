@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
       email = 'Guest Access'
     end
     order = Order.new(
-      email: email,
+      email: params[:stripeEmail],
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
