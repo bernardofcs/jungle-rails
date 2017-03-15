@@ -58,6 +58,7 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+    ModelMailer.new_record_notification(order).deliver
     order
   end
 
