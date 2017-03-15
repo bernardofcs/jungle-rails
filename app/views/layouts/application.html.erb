@@ -13,11 +13,14 @@
   <main class="container">
     <%= yield %>
   </main>
+  <br>
+  <center>
   <% if current_user %>
    Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
   <% else %>
   <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
   <% end %>
+  </center>
 
   <%= yield :end_of_body %>
 </body>
