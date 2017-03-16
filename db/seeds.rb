@@ -35,101 +35,112 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
-pro1 = cat1.products.find_or_create_by!({
-  name:  'Men\'s Classy shirt',
+pro1 = cat1.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
   quantity: 10,
   price: 64.99
+).find_or_create_by!({
+  name:  'Men\'s Classy shirt'
 })
 
-pro2 = cat1.products.find_or_create_by!({
-  name:  'Women\'s Zebra pants',
+pro2 = cat1.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
   quantity: 18,
   price: 124.99
+).find_or_create_by!({
+  name:  'Women\'s Zebra pants'
 })
 
-pro3 = cat1.products.find_or_create_by!({
-  name:  'Hipster Hat',
+pro3 = cat1.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel3.jpg'),
   quantity: 4,
   price: 34.49
+).find_or_create_by!({
+  name:  'Hipster Hat'
 })
 
-pro4 = cat1.products.find_or_create_by!({
-  name:  'Hipster Socks',
+pro4 = cat1.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel4.jpg'),
   quantity: 8,
   price: 25.00
+).find_or_create_by!({
+  name:  'Hipster Socks'
 })
 
-pro5 = cat1.products.find_or_create_by!({
-  name:  'Russian Spy Shoes',
+pro5 = cat1.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel5.jpg'),
   quantity: 0,
   price: 1_225.00
+).find_or_create_by!({
+  name:  'Russian Spy Shoes'
 })
 
-pro6 = cat1.products.find_or_create_by!({
-  name:  'Human Feet Shoes',
+pro6 = cat1.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel6.jpg'),
   quantity: 82,
   price: 224.50
+).find_or_create_by!({
+  name:  'Human Feet Shoes'
 })
 
 
-pro7 = cat2.products.find_or_create_by!({
-  name:  'Modern Skateboards',
+pro7 = cat2.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics1.jpg'),
   quantity: 40,
   price: 164.49
+).find_or_create_by!({
+  name:  'Modern Skateboards'
 })
 
-pro8 = cat2.products.find_or_create_by!({
-  name:  'Hotdog Slicer',
-  description: Faker::Hipster.paragraph(4),
+pro8 = cat2.products.create_with(description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics2.jpg'),
   quantity: 3,
   price: 26.00
+  ).find_or_create_by!({
+  name:  'Hotdog Slicer'
 })
 
-pro9 = cat2.products.find_or_create_by!({
-  name:  'World\'s Largest Smartwatch',
+pro9 = cat2.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics3.jpg'),
   quantity: 32,
   price: 2_026.29
+  ).find_or_create_by!({
+  name:  'World\'s Largest Smartwatch'
 })
 
-pro10 = cat3.products.find_or_create_by!({
-  name:  'Optimal Sleeping Bed',
+pro10 = cat3.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
   quantity: 320,
   price: 3_052.00
+).find_or_create_by!({
+  name:  'Optimal Sleeping Bed'
 })
 
-pro11 = cat3.products.find_or_create_by!({
-  name:  'Electric Chair',
+pro11 = cat3.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
   quantity: 2,
   price: 987.65
+).find_or_create_by!({
+  name:  'Electric Chair'
 })
 
-pro12 = cat3.products.find_or_create_by!({
-  name:  'Red Bookshelf',
+pro12 = cat3.products.create_with(
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
   quantity: 23,
   price: 2_483.75
+).find_or_create_by!({
+  name:  'Red Bookshelf'
 })
 
 # REVIEWS
