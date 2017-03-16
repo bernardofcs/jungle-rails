@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Thank you for your purchase!</h2>
+    <% @order.line_items.each do |line_item| %>
+      <p> Item name: <%= Product.where(id: line_item.product_id).pluck(:name).join("")%> </p>
+      <p> Unit Price: <%= line_item.item_price%></p>
+      <p> Quantity: <%= line_item.quantity%></p>
+      <p> Item Price: <%= line_item.total_price%></p><br>
+    <% end %>
+    <p>
+      The order total was: <%= @order.total %>.<br>
+    </p>
+    <p>Thanks for ordering and have a great day!</p>
+  </body>
+</html>
