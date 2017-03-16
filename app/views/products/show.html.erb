@@ -25,7 +25,16 @@
         </dl>
       </div>
     </div>
-
+    <% if @product.reviews.count > 0 %>
+      <div class="row">
+      <h2>Reviews: </h2>
+        <% @product.reviews.each do |review| %>
+          <%= review.description%><br>
+          Rating: <%= review.rating%>/10
+          <br><br>
+        <% end %>
+      </div>
+    <% end %>
   </article>
 
 </section>
