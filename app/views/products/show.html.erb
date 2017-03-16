@@ -25,12 +25,23 @@
         </dl>
       </div>
     </div>
+    <div>
+    <% if current_user %>
+      <%= form_for :review, url: "/products/#{@product.id}/reviews#create" do |f| %>
+        <%= current_user.email %><br>
+        Review: <br><%= f.text_area :description %><br>
+        Rating: <%= f.select :rating, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <%= f.submit "Submit" %>
+      <% end %>
+    <% end %>
+    </div>
     <% if @product.reviews.count > 0 %>
       <div class="row">
       <h2>Reviews: </h2>
-        <% @product.reviews.each do |review| %>
+        <% @product.reviews.order('created_at DESC').each do |review| %>
           <%= review.description%><br>
-          Rating: <%= review.rating%>/10
+          Rating: <%= review.rating%>/10 <% if current_user.id = review.user_id %> <%= link_to "Delete", "./#{@product.id}/reviews/#{review.id}/destroy", method: :post %> <% end %>
           <br><br>
         <% end %>
       </div>
