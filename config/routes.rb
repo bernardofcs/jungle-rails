@@ -1,3 +1,5 @@
+require "net/http"
+
 Rails.application.routes.draw do
 
   root to: 'products#index'
