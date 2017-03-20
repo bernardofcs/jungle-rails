@@ -40,6 +40,11 @@ main section.categories-show {
         transition: all 0.3s;
       }
 
+      span.average {
+        font-size: 0.95em;
+        font-weight: bold;
+      }
+
       aside.price {
         position: absolute;
         top: 0;

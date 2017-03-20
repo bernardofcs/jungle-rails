@@ -8,9 +8,16 @@
   <p class="description">
     <%= product.description %>
   </p>
+  <% if product.reviews.count > 0 %>
+      <span class="average"><%= a = 'Average Rating: ' + ('%.1f' % product.reviews.average(:rating)).to_s + '/10' %></span>
+    <% else %>
+      <span class="average">No Reviews</span>
+    <% end %>
   <footer class="actions">
-    <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
-      <%= fa_icon "shopping-cart", text: 'Add' %>
+    <% if product.quantity > 0 %>
+      <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
+        <%= fa_icon "shopping-cart", text: 'Add' %>
+      <% end %>
     <% end %>
     <%= link_to product, class: 'btn btn-default pull-right' do %>
       Details &raquo;

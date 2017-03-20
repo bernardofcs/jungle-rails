@@ -6,5 +6,8 @@
   Password: <%= f.password_field :password %>
   Password Confirmation: <%= f.password_field :password_confirmation %>
   <%= f.submit "Submit" %>
+  <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
 
 <% end %>
