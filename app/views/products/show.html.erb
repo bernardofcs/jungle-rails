@@ -41,7 +41,7 @@
       <h2>Reviews: </h2>
         <% @product.reviews.order('created_at DESC').each do |review| %>
           <%= review.description%><br>
-          Rating: <%= review.rating%>/10 <% if current_user.id = review.user_id %> <%= link_to "Delete", "./#{@product.id}/reviews/#{review.id}/destroy", method: :post %> <% end %>
+          Rating: <%= review.rating%>/10 <% if current_user %><% if current_user.id = review.user_id %> <%= link_to "Delete", "./#{@product.id}/reviews/#{review.id}/destroy", method: :post %> <% end %><% end %>
           <br><br>
         <% end %>
       </div>
